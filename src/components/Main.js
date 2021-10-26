@@ -1,16 +1,33 @@
 import { useState, useEffect } from 'react';
 import { Route, Switch, Redirect, Link } from 'react-router-dom';
 
-const Main = (props) => {
-    const [film, setFilm ] = useState([]); 
+const Main = (props) => { 
+    return (
+        <main>
+            <Switch>
+                <Route exact path="/">
+                    <Index films={films} createFilms={createFilms} />
+                </Route>
+                <Route path="/films/:id" render={(rp) => (
+                    people.length ?
+                        <Show 
+                            {...rp}
+                            films={films} 
+                            updateFilms={updateFilms}
+                            deleteFilms={deleteFilms}
+                        />
+                    :
+                    <Redirect to="/" />
+                )} />
+                <Route to="/404">
+                    <div>
+                        <h1>Page not found</h1>
+                        <Link to="/">Go Back to Home Page</Link>
+                    </div>
+                </Route>
+            </Switch>
+        </main>
+    );
+}
 
-   
-    const BASE_URL = 'https://express-people-api.herokuapp.com/people/'; 
-
-   
-    const getFilm = async () => {
-        
-        const response = await fetch(BASE_URL)
-        const data = await response.json();
-        setFilm(data);
-    }
+export default Main;
