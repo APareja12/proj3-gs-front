@@ -9,7 +9,7 @@ const Main = (props) => {
                     <Index films={films} createFilms={createFilms} />
                 </Route>
                 <Route path="/films/:id" render={(rp) => (
-                    people.length ?
+                    film.length ?
                         <Show 
                             {...rp}
                             films={films} 

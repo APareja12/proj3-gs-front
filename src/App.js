@@ -5,6 +5,7 @@ import About from './pages/About'
 import Home from './pages/Home'
 import Favorites from './pages/Favorites'
 import Nav from './components/Nav'
+// import Form from "./components/Form";
 
 function App() {
   return (
