@@ -23,7 +23,7 @@ const Home = (props) => {
     return (
         <section>
             <Form />
-            { props.people ? loaded() : loading() }
+            { props.films ? loaded() : loading() }
         </section>
     );
     

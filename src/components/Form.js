@@ -17,7 +17,14 @@ const Form = (props) => {
         props.createPeople(newForm)
         setNewForm(getNewState());
     }
-
+    
+    function getNewState() {
+        return {
+            name: "",
+            image: "",
+            title: ""
+        }
+    }
 
     return (
       <form className="Form" onSubmit={handleSubmit}>
