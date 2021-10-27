@@ -6,7 +6,9 @@ import About from './pages/About'
 import Home from './pages/Home'
 import Favorites from './pages/Favorites'
 import Nav from './components/Nav'
+
 import Footer from './components/Footer'
+import Header from './components/Header';
 
 import Login from './pages/Login'
 import Casa from './pages/Casa'
@@ -14,9 +16,13 @@ import Dashboard from './pages/Dashboard'
 
 import { auth } from './services/firebase';
 
-// import Form from "./components/Form";
 
 function App() {
+
+  const [ user, setUser ] = useState(null)
+  useEffect
+  auth.onAuthStateChanged(user =>)
+
   return (
     <div className="App">
       <Nav/>
