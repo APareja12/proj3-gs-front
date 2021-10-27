@@ -17,6 +17,8 @@ const Home = (props) => {
     }
 
     const loading = () => <h1>Loading ...</h1>
+
+  
  
     return (
         <section>
