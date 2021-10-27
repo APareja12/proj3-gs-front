@@ -6,7 +6,7 @@ const Header = (props) => {
 
     return (
         <StyledHeader>
-            <h1>React CRM</h1>
+            <h1>Golden Silence</h1>
             <nav>
                 <ul>
                     {

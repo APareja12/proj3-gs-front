@@ -20,11 +20,15 @@ import { auth } from './services/firebase';
 function App() {
 
   const [ user, setUser ] = useState(null)
-  useEffect
-  auth.onAuthStateChanged(user =>)
+  useEffect(() => {
+    const unsubscribe =  auth.onAuthStateChanged(user => setUser(user));
+    return () => unsubscribe(); 
+    }, []);
+  
 
   return (
     <div className="App">
+      <Header user={user}/>
       <Nav/>
       <Switch>
          <Route exact path="/">

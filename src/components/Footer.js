@@ -1,8 +1,11 @@
+import { StyledFooter } from '../styles';
+
 const Footer = (props) => {
     return (
-        <footer>
-            <h1>Footer</h1>
-        </footer>
+        <StyledFooter>
+            <p>Copyright &copy; All Rights Reserved Golden Silence {new Date().getFullYear()}</p>
+        </StyledFooter>
     );
 };
+
 export default Footer;
