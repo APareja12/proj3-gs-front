@@ -1,7 +1,33 @@
 import { useState, useEffect } from 'react';
 import { Route, Switch, Redirect, Link } from 'react-router-dom';
+import Home from '../pages/Home'
+import Favorites from '../pages/Favorites'
 
 const Main = (props) => { 
+    const [films, setFilms] = useState()
+    const URL = "http://localhost:3001/films/"
+
+    const getFilms = async () => {
+        const response = await fetch(URL);
+        const data = await response.json();
+        setFilms(data);
+     };
+
+     const createFilms = async (film) => {
+    
+        await fetch(URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "Application/json",
+          },
+          body: JSON.stringify(film),
+        });
+        getFilms();
+      };
+    
+      useEffect(() => getFilms(), []);
+    
+
     return (
         <main>
             <Switch>
