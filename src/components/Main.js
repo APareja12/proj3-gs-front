@@ -4,7 +4,7 @@ import Home from '../pages/Home'
 import Favorites from '../pages/Favorites'
 
 const Main = (props) => { 
-    const [films, setFilms] = useState()
+    const [films, setFilms] = useState([])
     const URL = "http://localhost:3001/films/"
 
     const getFilms = async () => {
@@ -32,11 +32,11 @@ const Main = (props) => {
         <main>
             <Switch>
                 <Route exact path="/">
-                    <Index films={films} createFilms={createFilms} />
+                    <Home films={films} createFilms={createFilms} />
                 </Route>
                 <Route path="/films/:id" render={(rp) => (
                     film.length ?
-                        <Show 
+                        <Favorites 
                             {...rp}
                             films={films} 
                             updateFilms={updateFilms}
