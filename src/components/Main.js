@@ -5,11 +5,11 @@ import Favorites from '../pages/Favorites'
 
 const Main = (props) => { 
     const [films, setFilms] = useState([])
-    const URL = "http://localhost:3001/films/"
-
+    const URL = "http://localhost:3001/films"
     const getFilms = async () => {
         const response = await fetch(URL);
         const data = await response.json();
+        console.log(data)
         setFilms(data);
      };
 
@@ -34,17 +34,17 @@ const Main = (props) => {
                 <Route exact path="/">
                     <Home films={films} createFilms={createFilms} />
                 </Route>
-                <Route path="/films/:id" render={(rp) => (
+                {/* <Route path="/films/:id" render={(rp) => (
                     film.length ?
                         <Favorites 
                             {...rp}
                             films={films} 
                             updateFilms={updateFilms}
                             deleteFilms={deleteFilms}
-                        />
-                    :
-                    <Redirect to="/" />
-                )} />
+                        /> */}
+                    {/* :
+                    <Redirect to="/" /> */}
+                {/* )} /> */}
                 <Route to="/404">
                     <div>
                         <h1>Page not found</h1>

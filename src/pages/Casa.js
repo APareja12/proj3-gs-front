@@ -1,8 +1,11 @@
-const Casa = (props) => {
+import { StyledMain } from '../styles';
+
+const Home = (props) => {
     return (
-        <main>
-            <h1>Casa</h1>
-        </main>
+        <StyledMain>
+            <h1>Home</h1>
+        </StyledMain>
     );
 };
-export default Casa;
+
+export default Home;

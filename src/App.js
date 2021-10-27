@@ -3,7 +3,7 @@ import './App.css';
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import About from './pages/About'
-import Home from './pages/Home'
+import Main from './components/Main'
 import Favorites from './pages/Favorites'
 import Nav from './components/Nav'
 
@@ -31,8 +31,8 @@ function App() {
       <Header user={user}/>
       <Nav/>
       <Switch>
-         <Route exact path="/">
-           <Home />
+         <Route>
+           <Main />
          </Route>
          <Route exact path="/Casa">
            <Casa />
