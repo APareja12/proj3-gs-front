@@ -18,8 +18,12 @@ const Home = (props) => {
 
     const loading = () => <h1>Loading ...</h1>
  
-    return props.films ? loaded() : loading();
-    
+    return (
+        <section>
+            <Form />
+            { props.people ? loaded() : loading() }
+        </section>
+    );
     
   }
   
