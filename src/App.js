@@ -31,7 +31,7 @@ function App() {
       <Header user={user}/>
       <Nav/>
       <Switch>
-         <Route>
+         <Route exact path="/">
            <Main />
          </Route>
          <Route exact path="/Casa">

@@ -14,21 +14,23 @@ const Form = (props) => {
     const handleSubmit = (event) => {
        
         event.preventDefault();
-        props.createPeople(newForm)
+        props.createFilms(newForm)
         setNewForm(getNewState());
     }
     
     function getNewState() {
         return {
-            name: "",
-            image: "",
-            title: ""
+            title: "",
+            year:"",
+            image:"",
+            director:"",
+            country:"",
         }
     }
 
     return (
       <form className="Form" onSubmit={handleSubmit}>
-          <input value={newForm.title} onChange={handleChange} placeholder="Title" name="name"  type="text" />
+          <input value={newForm.title} onChange={handleChange} placeholder="Title" name="title"  type="text" />
           <input value={newForm.year} onChange={handleChange} placeholder="Year" name="year"  type="text" />
           <input value={newForm.image} onChange={handleChange} placeholder= "URL" name="image" type="url" />
           <input value={newForm.director} onChange={handleChange} placeholder="Director" name="director"  type="text" />

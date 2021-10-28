@@ -26,7 +26,8 @@ const Home = (props) => {
     
     return (
         <section>
-            <Form />
+            <Form createFilms={props.createFilms}/>
+
             
             { props.films ? loaded() : loading() }
         </section>
