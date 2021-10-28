@@ -4,18 +4,20 @@ import { StyledMain } from '../styles';
 
 const Home = (props) => {
     
-    console.log(props.films)
     const loaded = () => {
         return props.films.map(film => (
             
             <div key={film._id} className="film">
                 <Link to={`/films/${film._id}`}>
                     <StyledMain>
-                    <h1>{film.name}</h1>
+                    <h1>{film.title}</h1>
                     </StyledMain>
                 </Link>
-                <img src={film.image} alt={film.name} />
-                <h3>{film.title}</h3>
+                <h3>{film.year}</h3>
+                <img src={film.image} alt={film.title} />
+                <p>{film.director}</p>
+                <p>{film.country}</p>
+                
              </div>
              
         ));

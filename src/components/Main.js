@@ -24,7 +24,23 @@ const Main = (props) => {
         });
         getFilms();
       };
+
+      const updateFilms = async (film, id) => {
+          await fetch(URL + id,  {
+              method: 'PUT',
+              headers: {
+                  'Content-type': 'Application/json'
+              },
+              body: JSON.stringify(film)
+          });
+          getFilms();
+      }
     
+      const deleteFilms = async id => {
+          await fetch(URL + id, {method: 'DELETE'});
+          getFilms();
+      }
+
       useEffect(() => getFilms(), []);
     
 
@@ -34,17 +50,17 @@ const Main = (props) => {
                 <Route exact path="/">
                     <Home films={films} createFilms={createFilms} />
                 </Route>
-                {/* <Route path="/films/:id" render={(rp) => (
-                    film.length ?
+                <Route path="/films/:id" render={(rp) => (
+                    films.length ?
                         <Favorites 
                             {...rp}
                             films={films} 
                             updateFilms={updateFilms}
                             deleteFilms={deleteFilms}
-                        /> */}
-                    {/* :
-                    <Redirect to="/" /> */}
-                {/* )} /> */}
+                        />
+                      :
+                    <Redirect to="/" /> 
+                 )} /> 
                 <Route to="/404">
                     <div>
                         <h1>Page not found</h1>
