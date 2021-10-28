@@ -19,9 +19,30 @@ import { auth } from './services/firebase';
 
 function App() {
 
-  const [ user, setUser ] = useState(null)
+  const [ user, setUser ] = useState(null);
+
+  const [ contacts, setContacts ] = useState([]);
+
+  const API_URL = 'http://localhost:3001/api/contacts';
+  //TODO: add the heroku API
+  const getContacts = async () => {
+    const response = await fetch(API_URL);
+    const contacts = response.json();
+    setContacts(contacts);
+  }
+
+  const createContact = async person => {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+    headers: {'Content-type': 'Application/json'},
+    body: JSON.stringify(person)
+   });
+   getContacts();
+  }
+
   useEffect(() => {
     const unsubscribe =  auth.onAuthStateChanged(user => setUser(user));
+    getContacts();
     return () => unsubscribe(); 
     }, []);
   
