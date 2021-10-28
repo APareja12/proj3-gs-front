@@ -60,8 +60,12 @@ function App() {
          </Route>
          <Route exact path="/Login">
            <Login />
-         </Route> <Route exact path="/Dashboard">
-           <Dashboard />
+         </Route> <Route path="/Dashboard">
+            
+            <Dashboard 
+              contacts={contacts}
+              createContact={createContact}
+               />
          </Route>
          <Route exact path="/About">
            <About />
