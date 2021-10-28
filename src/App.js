@@ -25,17 +25,32 @@ function App() {
 
   const API_URL = 'http://localhost:3001/api/contacts';
   //TODO: add the heroku API
+  
   const getContacts = async () => {
-    const response = await fetch(API_URL);
-    const contacts = response.json();
+    if(!user) return;
+    
+
+    const token = await user.getIdToken();
+    const response = await fetch(API_URL, {
+      method: 'GET',
+      headers: {
+        'Authorization': 'Bearer ' + token
+      }
+    });
+    const contacts = await response.json();
     setContacts(contacts);
   }
 
   const createContact = async person => {
-    const response = await fetch(API_URL, {
+    const data = {...person, managedBy: user.uid}
+    const token = await user.getIdToken();
+    await fetch(API_URL, {
       method: 'POST',
-    headers: {'Content-type': 'Application/json'},
-    body: JSON.stringify(person)
+    headers: {
+      'Authorization': 'Bearer ' + token,
+      'Content-type': 'Application/json'
+    },
+    body: JSON.stringify(data)
    });
    getContacts();
   }
@@ -44,7 +59,7 @@ function App() {
     const unsubscribe =  auth.onAuthStateChanged(user => setUser(user));
     getContacts();
     return () => unsubscribe(); 
-    }, []);
+    }, [user]);
   
 
   return (
@@ -53,7 +68,7 @@ function App() {
       <Nav/>
       <Switch>
          <Route exact path="/">
-           <Main />
+           <Main user={user}/>
          </Route>
          <Route exact path="/Casa">
            <Casa />

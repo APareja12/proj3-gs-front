@@ -7,7 +7,13 @@ const Main = (props) => {
     const [films, setFilms] = useState([])
     const URL = "http://localhost:3001/films"
     const getFilms = async () => {
-        const response = await fetch(URL);
+        const token = await props.user.getIdToken();
+        const response = await fetch(URL, {
+            method: 'GET',
+            headers: {
+              'Authorization': 'Bearer ' + token
+            }
+          })
         const data = await response.json();
         console.log(data)
         setFilms(data);
