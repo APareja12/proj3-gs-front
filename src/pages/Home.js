@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { StyledMain } from '../styles';
 
 const Home = (props) => {
-    
+    console.log(props)
     const loaded = () => {
-        console.log(props.films)
+
         return props.films.map(film => (
             
             <div key={film._id} className="film">

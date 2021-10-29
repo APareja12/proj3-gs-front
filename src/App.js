@@ -3,7 +3,6 @@ import './App.css';
 import { Route, Switch, Redirect, useParams } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
 import About from './pages/About'
-import Main from './components/Main'
 import Favorites from './pages/Favorites'
 import Nav from './components/Nav'
 
@@ -14,17 +13,67 @@ import Login from './pages/Login'
 import Casa from './pages/Casa'
 import Dashboard from './pages/Dashboard'
 import Show from './pages/Show'
+import Home from './pages/Home'
 
 import { auth } from './services/firebase';
 
 
 function App() {
+ 
+  const [films, setFilms] = useState([])
 
   const [ user, setUser ] = useState(null);
 
   const [ contacts, setContacts ] = useState([]);
 
   const fetchData = useRef(null);
+
+  const URL = "http://localhost:3001/films"
+  const getFilms = async () => {
+      
+      if (user !== null) {
+          const token = await user.getIdToken();
+          const response = await fetch(URL, {
+              method: 'GET',
+              headers: {
+                'Authorization': 'Bearer ' + token
+              }
+            })
+          const data = await response.json();
+          console.log(data, 'getFilms')
+          setFilms(data);
+      }
+    };
+
+   const createFilms = async (film) => {
+  
+      await fetch(URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "Application/json",
+        },
+        body: JSON.stringify(film),
+      });
+      getFilms();
+    };
+
+    const updateFilms = async (film, id) => {
+        await fetch(URL + id,  {
+            method: 'PUT',
+            headers: {
+                'Content-type': 'Application/json'
+            },
+            body: JSON.stringify(film)
+        });
+        getFilms();
+    }
+  
+    const deleteFilms = async id => {
+        await fetch(URL + id, {method: 'DELETE'});
+        getFilms();
+    }
+
+    useEffect(() => getFilms(), [user]);
 
   const API_URL = 'http://localhost:3001/api/contacts/';
   //TODO: add the heroku API
@@ -88,13 +137,9 @@ function App() {
       user
         ? <Switch>
          <Route exact path="/">
-           <Main user={user}/>
+         <Home user={user} films={films} createFilms={createFilms} />
          </Route>
-         <Route path="/:id" render={(rp) => (
-
-           <Show
-          {...rp} user={user}/>
-         )} />
+       
 
          <Route exact path="/Casa">
            <Casa />
@@ -114,10 +159,18 @@ function App() {
          <Route exact path="/Favorites">
            <Favorites />
          </Route>
+         <Route path="/films/:id" render={(rp) => (
+
+            <Show
+            {...rp} user={user}
+            films={films} 
+            updateFilms={updateFilms}
+            deleteFilms={deleteFilms} />
+            )} />
              </Switch>
           : <Switch>
     <Route exact path="/">
-    <Main user= {user}/>
+    <Home user= {user}/>
     </Route>
     <Route exact path="/Login">
     <Login />
