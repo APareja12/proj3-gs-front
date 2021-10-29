@@ -15,7 +15,7 @@ const Home = (props) => {
                     </StyledMain>
                 </Link>
                 <h3>{film.year}</h3>
-                <img style={{height: 200, width: 200 }} src={film.image} alt={film.title} />
+                <img style={{height: 300, width: 200 }} src={film.image} alt={film.title} />
                 <p>{film.director}</p>
                 <p>{film.country}</p>
                 

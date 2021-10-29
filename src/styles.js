@@ -5,6 +5,7 @@ export const StyledHeader = styled.header`
     align-items: center;
     justify-content: space-between;
     padding-left: 1rem;
+    font-family: 'Jacques Francois', serif;
     height: 5rem;
     background-color: #000;
     color: #ffffff;
@@ -19,6 +20,10 @@ export const StyledHeader = styled.header`
                 margin-right: 1.5rem;
                 font-size: 1.5rem;
                 font-weight: 700;
+                img {
+                    height: 50px;
+                    border-radius: 50%;
+                }
                 a {
                     text-decoration: none;
                     color: inherit;

@@ -88,7 +88,7 @@ function App() {
         'Authorization': 'Bearer ' + token
       }
     });
-    console.log(response)
+    
     const contacts = await response.json();
     setContacts(contacts);
     }

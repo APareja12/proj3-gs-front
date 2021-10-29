@@ -1,13 +1,16 @@
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom"
 
 const Show = (props) => {
-  console.log(props)
+  
+  let location = useLocation();
+  console.log('this is location', location)
+  const path = location.pathname
+  console.log(path)
   const id = props.match.params.id;
   const films = props.films;
+  
   const film = films.find(p => p._id === id);
-
- console.log(film)
- console.log(id)
 
 const removeFilm = () => {
     props.deleteFilms(film._id);
