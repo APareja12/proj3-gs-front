@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Favorites = (props) => {
+const Show = (props) => {
   console.log(props)
   const id = props.match.params.id;
   const films = props.films;
@@ -69,4 +69,4 @@ const removeFilm = () => {
     );
     }
   
-  export default Favorites;
+  export default Show;

@@ -1,7 +1,7 @@
 
 import './App.css';
-import { Route, Switch, Redirect } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { Route, Switch, Redirect, useParams } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
 import About from './pages/About'
 import Main from './components/Main'
 import Favorites from './pages/Favorites'
@@ -13,6 +13,7 @@ import Header from './components/Header';
 import Login from './pages/Login'
 import Casa from './pages/Casa'
 import Dashboard from './pages/Dashboard'
+import Show from './pages/Show'
 
 import { auth } from './services/firebase';
 
@@ -22,6 +23,8 @@ function App() {
   const [ user, setUser ] = useState(null);
 
   const [ contacts, setContacts ] = useState([]);
+
+  const fetchData = useRef(null);
 
   const API_URL = 'http://localhost:3001/api/contacts/';
   //TODO: add the heroku API
@@ -43,8 +46,9 @@ function App() {
 }
 
   const createContact = async person => {
-    const data = {...person, managedBy: user.uid}
+    if(!user) return;
     const token = await user.getIdToken();
+    const data = {...person, managedBy: user.uid}
     await fetch(API_URL, {
       method: 'POST',
     headers: {
@@ -57,9 +61,21 @@ function App() {
   }
 
   useEffect(() => {
-    const unsubscribe =  auth.onAuthStateChanged(user => setUser(user));
-    getContacts();
-    console.log(user)
+    fetchData.current = createContact;
+  });
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged(user => {
+      setUser(user);
+
+      if(user) {
+        fetchData.current();
+      } else {
+        setContacts([]);
+      }
+      
+    });
+   
     return () => unsubscribe(); 
     }, [user]);
   
@@ -74,6 +90,12 @@ function App() {
          <Route exact path="/">
            <Main user={user}/>
          </Route>
+         <Route path="/:id" render={(rp) => (
+
+           <Show
+          {...rp} user={user}/>
+         )} />
+
          <Route exact path="/Casa">
            <Casa />
          </Route>

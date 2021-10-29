@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Route, Switch, Redirect, Link } from 'react-router-dom';
 import Home from '../pages/Home'
-import Favorites from '../pages/Favorites'
+import Show from '../pages/Show'
 
 const Main = (props) => { 
     console.log(props)
@@ -63,7 +63,7 @@ const Main = (props) => {
                 </Route>
                 <Route path="/films/:id" render={(rp) => (
                     films.length ?
-                        <Favorites 
+                        <Show 
                             {...rp}
                             films={films} 
                             updateFilms={updateFilms}
