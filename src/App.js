@@ -23,23 +23,24 @@ function App() {
 
   const [ contacts, setContacts ] = useState([]);
 
-  const API_URL = 'http://localhost:3001/api/contacts';
+  const API_URL = 'http://localhost:3001/api/contacts/';
   //TODO: add the heroku API
   
   const getContacts = async () => {
-    if(!user) return;
-    
-
-    const token = await user.getIdToken();
+    if(user) { 
+      const token = await user.getIdToken();
+      console.log(token)
     const response = await fetch(API_URL, {
       method: 'GET',
       headers: {
         'Authorization': 'Bearer ' + token
       }
     });
+    console.log(response)
     const contacts = await response.json();
     setContacts(contacts);
-  }
+    }
+}
 
   const createContact = async person => {
     const data = {...person, managedBy: user.uid}
@@ -58,6 +59,7 @@ function App() {
   useEffect(() => {
     const unsubscribe =  auth.onAuthStateChanged(user => setUser(user));
     getContacts();
+    console.log(user)
     return () => unsubscribe(); 
     }, [user]);
   
@@ -66,7 +68,9 @@ function App() {
     <div className="App">
       <Header user={user}/>
       <Nav/>
-      <Switch>
+      {
+      user
+        ? <Switch>
          <Route exact path="/">
            <Main user={user}/>
          </Route>
@@ -88,7 +92,16 @@ function App() {
          <Route exact path="/Favorites">
            <Favorites />
          </Route>
-        </Switch>
+             </Switch>
+          : <Switch>
+    <Route exact path="/">
+    <Main user= {user}/>
+    </Route>
+    <Route exact path="/Login">
+    <Login />
+  </Route>
+  </Switch>
+    }
         <Footer />
        </div>
   );

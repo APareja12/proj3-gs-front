@@ -4,19 +4,24 @@ import Home from '../pages/Home'
 import Favorites from '../pages/Favorites'
 
 const Main = (props) => { 
+    console.log(props)
     const [films, setFilms] = useState([])
     const URL = "http://localhost:3001/films"
     const getFilms = async () => {
-        const token = await props.user.getIdToken();
-        const response = await fetch(URL, {
-            method: 'GET',
-            headers: {
-              'Authorization': 'Bearer ' + token
-            }
-          })
-        const data = await response.json();
-        console.log(data)
-        setFilms(data);
+        
+        if (props.user !== null) {
+            const token = await props.user.getIdToken();
+            const response = await fetch(URL, {
+                method: 'GET',
+                headers: {
+                  'Authorization': 'Bearer ' + token
+                }
+              })
+            const data = await response.json();
+            console.log(data)
+            setFilms(data);
+        }
+        
      };
 
      const createFilms = async (film) => {

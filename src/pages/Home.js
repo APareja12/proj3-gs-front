@@ -5,6 +5,7 @@ import { StyledMain } from '../styles';
 const Home = (props) => {
     
     const loaded = () => {
+        console.log(props.films)
         return props.films.map(film => (
             
             <div key={film._id} className="film">
@@ -14,7 +15,7 @@ const Home = (props) => {
                     </StyledMain>
                 </Link>
                 <h3>{film.year}</h3>
-                <img style={{height: 100, width: 100 }} src={film.image} alt={film.title} />
+                <img style={{height: 200, width: 200 }} src={film.image} alt={film.title} />
                 <p>{film.director}</p>
                 <p>{film.country}</p>
                 
