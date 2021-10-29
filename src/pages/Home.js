@@ -1,6 +1,7 @@
 import  Form  from '../components/Form'
 import { Link } from "react-router-dom";
 import { StyledMain } from '../styles';
+import '../index.css';
 
 const Home = (props) => {
     console.log(props)

@@ -28,7 +28,7 @@ function App() {
 
   const fetchData = useRef(null);
 
-  const URL = "http://localhost:3001/films"
+  const URL = "http://localhost:3001/films/"
   const getFilms = async () => {
       
       if (user !== null) {
@@ -43,7 +43,7 @@ function App() {
           console.log(data, 'getFilms')
           setFilms(data);
       }
-    };
+      };
 
    const createFilms = async (film) => {
   
@@ -88,7 +88,7 @@ function App() {
         'Authorization': 'Bearer ' + token
       }
     });
-    
+    console.log(response)
     const contacts = await response.json();
     setContacts(contacts);
     }
