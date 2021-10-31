@@ -138,7 +138,7 @@ function App() {
       user
         ? <Switch>
          <Route exact path="/">
-         <Home user={user} films={films} createFilms={createFilms} />
+         <Home user={user} />
          </Route>
        
 
@@ -158,7 +158,7 @@ function App() {
            <About />
          </Route>
          <Route exact path="/Add">
-           <Add />
+           <Add user={user} films={films} createFilms={createFilms} />
          </Route>
          <Route exact path="/Favorites">
            <Favorites />
