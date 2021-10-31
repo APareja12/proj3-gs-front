@@ -50,3 +50,20 @@ export const StyledFooter = styled.footer`
     height: 5rem;
     justify-content: center;
 `;
+
+export const StyledTable = styled.table`
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  th, td {
+        text-align: left;
+        padding: 5px;
+  }
+  tr:nth-child(even) {
+        background-color: #f2f2f2;
+  }
+  @media(min-width: 975px) {
+        width: 60%;
+        height: 50%;
+    }
+`;
