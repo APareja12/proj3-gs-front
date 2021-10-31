@@ -14,6 +14,7 @@ import Casa from './pages/Casa'
 import Dashboard from './pages/Dashboard'
 import Show from './pages/Show'
 import Home from './pages/Home'
+import Add from './pages/Add'
 
 import { auth } from './services/firebase';
 
@@ -155,6 +156,9 @@ function App() {
          </Route>
          <Route exact path="/About">
            <About />
+         </Route>
+         <Route exact path="/Add">
+           <Add />
          </Route>
          <Route exact path="/Favorites">
            <Favorites />

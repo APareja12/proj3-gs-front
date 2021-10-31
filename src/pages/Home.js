@@ -4,7 +4,6 @@ import { StyledMain } from '../styles';
 import '../index.css';
 
 const Home = (props) => {
-    console.log(props)
     const loaded = () => {
 
         return props.films.map(film => (
