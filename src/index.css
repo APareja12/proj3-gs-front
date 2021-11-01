@@ -18,9 +18,14 @@
 }
 
 section {
-  background-size: auto;
-  background-position: center;
+  background-size: 1900px 800px;
+  background-position: static;
   background-image: url('./oldframe.png');
+  background-repeat: repeat-y;
+}
+
+#add-title {
+  margin-bottom: 20px;
 }
 
 body, #root {
