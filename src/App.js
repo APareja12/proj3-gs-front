@@ -29,9 +29,9 @@ function App() {
 
   const fetchData = useRef(null);
 
-  const URL = "http://localhost:3001/films/" 
+  // const URL = "http://localhost:3001/films/" 
 
-  // const URL = "https://golden-silence-api.herokuapp.com/films/"
+  const URL = "https://golden-silence-api.herokuapp.com/films/"
 
 
   const getFilms = async () => {
