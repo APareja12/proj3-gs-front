@@ -7,7 +7,7 @@ import Favorites from './pages/Favorites'
 import Nav from './components/Nav'
 
 import Footer from './components/Footer'
-import Header from './components/Header';
+import Header from './components/Header'
 
 import Login from './pages/Login'
 import Casa from './pages/Casa'
@@ -16,12 +16,12 @@ import Show from './pages/Show'
 import Home from './pages/Home'
 import Add from './pages/Add'
 
-import { auth } from './services/firebase';
+import { auth } from './services/firebase'
 
 
 function App() {
  
-  const [films, setFilms] = useState([])
+  const [films, setFilms] = useState([]);
 
   const [ user, setUser ] = useState(null);
 
@@ -31,7 +31,7 @@ function App() {
 
   // const URL = "http://localhost:3001/films/" 
 
-  const URL = "https://golden-silence-api.herokuapp.com/films/"
+  const URL = "https://golden-silence-api.herokuapp.com/films/";
 
 
   const getFilms = async () => {
