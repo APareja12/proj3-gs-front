@@ -78,7 +78,11 @@ function App() {
         getFilms();
     }
 
-    useEffect(() => getFilms(), [user]);
+    useEffect(() => {
+      getFilms()
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user]);
+    
 
   const API_URL = 'http://localhost:3001/api/contacts/';
   //TODO: add the heroku API
