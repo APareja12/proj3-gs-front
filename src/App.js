@@ -1,6 +1,6 @@
 
 import './App.css';
-import { Route, Switch, Redirect, useParams } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
 import About from './pages/About'
 import Favorites from './pages/Favorites'
