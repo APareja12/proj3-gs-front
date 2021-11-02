@@ -1,11 +1,11 @@
 import { Helmet } from 'react-helmet'
 import { useState, useEffect } from 'react'
-// import List from '../components/List'
+import List from '../components/List'
 import '../index.css';
 
-const Home = () => {
+const Home = (props) => {
    const [search, setSearch] = useState('')
-   
+   // TODO pass a filteredList to List. Make another piece of state 
    return (
       
       <>
@@ -17,11 +17,12 @@ const Home = () => {
   
    <input id="search-input"
           type="text"
-          placeholder="Search name" 
-          value=''
+          placeholder="Search films" 
+          value={search}
           onChange={(event) => setSearch(event.target.value)}
            />
    <button id="search-btn">Search</button>
+   <List films={props.films}/>
    
    </>
    )

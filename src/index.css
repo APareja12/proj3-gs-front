@@ -24,11 +24,11 @@
   background-repeat: repeat-y;
 } */
 
-.addFilm {
+.film {
   background-size: 1200px 660px;
   background-position: center;
   background-image: url('./oldframe.png');
-  background-repeat: repeat-y;
+  /* background-repeat: no; */
 }
 
 #add-title {
