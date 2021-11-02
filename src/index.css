@@ -36,7 +36,8 @@ h3 {
   background-size: 1200px 542px;
   background-position: center;
   background-image: url('./oldframe.png');
-  /* background-repeat: no; */
+  background-repeat: no-repeat;
+  padding: 31px;
 }
 
 li {
@@ -46,7 +47,10 @@ li {
 .add-t {
   margin: 0px;
 }
-
+.add-t a {
+  
+  text-decoration: none;
+}
 body, #root {
   display: flex;
   flex-direction: column;

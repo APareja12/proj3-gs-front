@@ -1,36 +1,24 @@
 import { Helmet } from 'react-helmet'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useState } from 'react'
 import List from '../components/List'
 import '../index.css';
 
 const Home = (props) => {
    const [search, setSearch] = useState('')
-   const [filteredFilms, setFilteredFilms] = useState(search)
+   const [filteredFilms, setFilteredFilms] = useState([])
    // TODO pass a filteredList to List. Make another piece of state 
 const handleSearch = (event) => {
 
-   let value = event.target.value.toLowerCase();
-   let result = [];
-   console.log(value);
-   result = search.filter((films) => {
-      return films.title.search(value) != -1;
+   const value = search.toLowerCase();
+
+
+   const result = props.films.filter((film) => {
+   
+      return film.title.toLowerCase().includes(value)
    })
    setFilteredFilms(result);
 }
 
-useEffect(() => {
-axios('http://localhost:3001/films')
-.then(response => {
-   console.log(response.props.films)
-   setSearch(response.props.films);
-   setFilteredFilms(response.props.films);
-   
-})
-.catch(error => {
-   console.log('Error getting incorrect data: ' + error);
-})
-}, []);
 
    return (
       
@@ -45,10 +33,10 @@ axios('http://localhost:3001/films')
           type="text"
           placeholder="Search films" 
           value={search}
-          onChange={(event) => handleSearch(event.target.value)}
+          onChange={(event) => setSearch(event.target.value)}
            />
-   <button id="search-btn">Search</button>
-   <List films={props.films}/>
+   <button onClick={handleSearch} id="search-btn">Search</button>
+   <List films={filteredFilms}/>
    
    </>
    )
