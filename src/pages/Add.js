@@ -33,8 +33,9 @@ function Add(props) {
            <div id= "add-title">
                <h1>Add a Silent Film! </h1>
            </div> 
-            
+            <div className="addFilm">
             { props.films ? loaded() : loading() }
+            </div>
         </section>
     );
   }

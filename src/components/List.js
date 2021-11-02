@@ -1,20 +1,21 @@
 
 
- const List({films}) {
-    return (
-        <div>  
-            <ul>
-            {films.map(film => (
-                <li key={film.id}>
-                    Title:
-                       <span>{film.title}</span>
-                    Year: 
-                       <span>{film.year}</span>
-                </li>   
-            ))}
-            </ul>
-        </div>
-    )
-}
+//  const List = (props) => {
 
-export default List;
+//     return (
+//         <div>  
+//             <ul>
+//             {films.map(film => (
+//                 <li key={film.id}>
+//                     Title:
+//                        <span>{film.title}</span>
+//                     Year: 
+//                        <span>{film.year}</span>
+//                 </li>   
+//             ))}
+//             </ul>
+//         </div>
+//     )
+// }
+
+// export default List;

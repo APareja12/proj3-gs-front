@@ -22,6 +22,7 @@ import { auth } from './services/firebase'
 function App() {
  
   const [films, setFilms] = useState([]);
+  console.log(films)
 
   const [ user, setUser ] = useState(null);
 
@@ -29,9 +30,9 @@ function App() {
 
   const fetchData = useRef(null);
 
-  // const URL = "http://localhost:3001/films/" 
+  const URL = "http://localhost:3001/films/" 
 
-  const URL = "https://golden-silence-api.herokuapp.com/films/";
+  // const URL = "https://golden-silence-api.herokuapp.com/films/";
 
 
   const getFilms = async () => {
@@ -146,7 +147,7 @@ function App() {
       user
         ? <Switch>
          <Route exact path="/">
-         <Home user={user} />
+         <Home user={user} films={films}/>
          </Route>
        
 
