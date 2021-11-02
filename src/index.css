@@ -17,6 +17,14 @@
   text-decoration: none;
 }
 
+h3 {
+  margin: 6px 0px;
+      }
+
+.add-p {
+  margin: 0px;
+}
+
 /* section {
   background-size: 1900px 950px;
   background-position: static;
@@ -25,14 +33,18 @@
 } */
 
 .film {
-  background-size: 1200px 660px;
+  background-size: 1200px 542px;
   background-position: center;
   background-image: url('./oldframe.png');
   /* background-repeat: no; */
 }
 
-#add-title {
-  margin-bottom: 20px;
+li {
+  list-style: none;
+}
+
+.add-t {
+  margin: 0px;
 }
 
 body, #root {

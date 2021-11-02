@@ -12,13 +12,13 @@ function Add(props) {
             <div key={film._id} className="film">
                 <Link to={`/films/${film._id}`}>
                     <StyledMain>
-                    <h1>{film.title}</h1>
+                    <h1 className="add-t">{film.title}</h1>
                     </StyledMain>
                 </Link>
                 <h3>{film.year}</h3>
-                <img style={{height: 300, width: 200 }} src={film.image} alt={film.title} />
-                <p>{film.director}</p>
-                <p>{film.country}</p>
+                <img style={{height: 289, width: 200 }} src={film.image} alt={film.title} />
+                <p className="add-p">{film.director}</p>
+                <p className="add-p">{film.country}</p>
                 
              </div>
              
@@ -31,10 +31,10 @@ function Add(props) {
     return (
         <section>
             <Form createFilms={props.createFilms}/>
-           <div id= "add-title">
+           <div>
                <h1>Add a Silent Film! </h1>
            </div> 
-            <div className="addFilm">
+            <div>
             { props.films ? loaded() : loading() }
             </div>
         </section>
