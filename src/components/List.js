@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 
  const List = (props) => {
     const loaded = () => {
@@ -9,7 +9,9 @@
                 {props.films.map(film => (
                     <li key={film.id}>
                 
-                           <span>{film.title}</span>
+                         <Link to={`/films/${film._id}`}>
+                         <span>{film.title}</span><br />
+                         </Link>  
                        
                            <span>{film.year}</span>
                     </li>   

@@ -31,7 +31,7 @@ const removeFilm = () => {
 
 
     return (
-      <div className="film">
+      <div className="show-film">
         <h1>{film?.title}</h1>
         <h4>{film?.year}</h4>
         <h4>{film?.director}</h4>
