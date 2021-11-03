@@ -1,6 +1,5 @@
 import  Form  from '../components/Form'
 import { Link } from "react-router-dom";
-import { Helmet } from 'react-helmet'
 import { StyledMain } from '../styles';
 import '../index.css';
 
