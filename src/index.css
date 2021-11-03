@@ -47,6 +47,12 @@ li {
 .add-t {
   margin: 0px;
 }
+
+#home-bg {
+background-color: red;
+background-size: 100vh;
+}
+
 .add-t a {
   
   text-decoration: none;

@@ -28,6 +28,7 @@ const Header = (props) => {
                 </ul>
             </nav>
         </StyledHeader>
+        
     );
 };
 
