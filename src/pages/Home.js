@@ -2,6 +2,7 @@ import { Helmet } from 'react-helmet'
 import { useState } from 'react'
 import List from '../components/List'
 import '../index.css';
+import { listClasses } from '@mui/material';
 
 const Home = (props) => {
    const [search, setSearch] = useState('')
@@ -15,6 +16,7 @@ const handleSearch = (event) => {
    const result = props.films.filter((film) => {
    
       return film.title.toLowerCase().includes(value)
+
    })
    setFilteredFilms(result);
 }
@@ -23,6 +25,7 @@ const handleSearch = (event) => {
    return (
       
       <>
+   <div id="home-bg">
 
        <Helmet>
          <title>Welcome to Golden Silence 🌟 </title>
@@ -34,10 +37,10 @@ const handleSearch = (event) => {
           placeholder="Search films" 
           value={search}
           onChange={(event) => setSearch(event.target.value)}
-           />
+          />
    <button onClick={handleSearch} id="search-btn">Search</button>
    <List films={filteredFilms}/>
-   
+   </div>
    </>
    )
   }

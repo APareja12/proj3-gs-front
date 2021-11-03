@@ -51,6 +51,11 @@ li {
   
   text-decoration: none;
 }
+
+header h1 {
+  text-shadow: 3px 3px 2px rgba(255,215,0,0.6);
+
+}
 body, #root {
   display: flex;
   flex-direction: column;
