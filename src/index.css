@@ -48,9 +48,21 @@ li {
   margin: 0px;
 }
 
+.add-form {
+  margin-top: 10px;
+}
+
 #home-bg {
-background-color: red;
-background-size: 100vh;
+background-image: url('./assets/moon.png');
+height: 200vh;
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+}
+
+#home-bg h1 {
+  color: rgb(211, 185, 112);
+  margin-top: 0px;
 }
 
 .add-t a {

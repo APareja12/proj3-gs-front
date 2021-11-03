@@ -30,9 +30,9 @@ function App() {
 
   const fetchData = useRef(null);
 
-  // const URL = "http://localhost:3001/films/" 
+  const URL = "http://localhost:3001/films/" 
 
-  const URL = "https://golden-silence-api.herokuapp.com/films/"
+  // const URL = "https://golden-silence-api.herokuapp.com/films/"
 
 
   const getFilms = async () => {
@@ -146,23 +146,21 @@ function App() {
       {
       user
         ? <Switch>
-         <Route exact path="/">
-         <Home user={user} films={films}/>
-         </Route>
-       
-
-         <Route exact path="/Casa">
-           <Casa />
-         </Route>
-         <Route exact path="/Login">
+            <Route exact path="/">
+                <Home user={user} films={films}/>
+            </Route>
+            <Route exact path="/Casa">
+                 <Casa />
+            </Route>
+            <Route exact path="/Login">
            <Login />
-         </Route> <Route path="/Dashboard">
-            
-            <Dashboard 
-              contacts={contacts}
-              createContact={createContact}
+            </Route>
+           <Route path="/Dashboard">
+                <Dashboard 
+                  contacts={contacts}
+                  createContact={createContact}
                />
-         </Route>
+           </Route>
          <Route exact path="/About">
            <About />
          </Route>
@@ -170,24 +168,23 @@ function App() {
            <Add user={user} films={films} createFilms={createFilms} />
          </Route>
          <Route exact path="/Favorites">
-           <Favorites />
+                <Favorites />
          </Route>
          <Route path="/films/:id" render={(rp) => (
-
-            <Show
-            {...rp} user={user}
-            films={films} 
-            updateFilms={updateFilms}
-            deleteFilms={deleteFilms} />
-            )} />
-             </Switch>
+                <Show
+                {...rp} user={user}
+                films={films} 
+                updateFilms={updateFilms}
+                deleteFilms={deleteFilms} />
+                )} />
+          </Switch>
           : <Switch>
-    <Route exact path="/">
-    <Home user= {user}/>
-    </Route>
-    <Route exact path="/Login">
-    <Login />
-  </Route>
+        <Route exact path="/">
+          <Home user= {user}/>
+          </Route>
+          <Route exact path="/Login">
+          <Login />
+        </Route>
   </Switch>
     }
         <Footer />

@@ -29,7 +29,7 @@ const Form = (props) => {
     }
 
     return (
-      <form className="Form" onSubmit={handleSubmit}>
+      <form className="add-form" onSubmit={handleSubmit}>
           <input value={newForm.title} onChange={handleChange} placeholder="Title" name="title"  type="text" /><br />
           <input value={newForm.year} onChange={handleChange} placeholder="Year" name="year"  type="text" /><br />
           <input value={newForm.image} onChange={handleChange} placeholder= "URL" name="image" type="url" /><br />
