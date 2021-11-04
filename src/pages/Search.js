@@ -4,22 +4,31 @@ import List from '../components/List'
 import '../index.css';
 
 
-const Home = (props) => {
+const Search = (props) => {
    const [search, setSearch] = useState('')
    const [filteredFilms, setFilteredFilms] = useState([])
    // TODO pass a filteredList to List. Make another piece of state 
 const handleSearch = (event) => {
 
    const value = search.toLowerCase();
-
+   console.log(value)
 
    const result = props.films.filter((film) => {
    
       return film.title.toLowerCase().includes(value)
 
    })
+    console.log(result)
    setFilteredFilms(result);
+
 }
+
+// let renderResults 
+//  if (filteredFilms !== []){
+//   renderResults = <List films={filteredFilms}/>
+// }else{
+//   renderResults = <h2> No films</h2>
+// }
 
 
    return (
@@ -30,7 +39,7 @@ const handleSearch = (event) => {
        <Helmet>
          <title>Welcome to Golden Silence 🌟 </title>
       </Helmet>
-   <h1>Search for a Silent Film </h1>
+   <h1 id="search-title">Search for a Silent Film </h1>
   
    <input id="search-input"
           type="text"
@@ -39,10 +48,17 @@ const handleSearch = (event) => {
           onChange={(event) => setSearch(event.target.value)}
           />
    <button onClick={handleSearch} id="search-btn">Search</button>
-   <List films={filteredFilms}/>
+   
+   {filteredFilms.length > 0 ?
+      
+      <List films={filteredFilms}/>
+     : 
+     <h2> Film Is Not In Database</h2> 
+   }
+   
    </div>
    </>
    )
   }
   
-  export default Home
+  export default Search

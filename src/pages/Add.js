@@ -9,7 +9,7 @@ function Add(props) {
         return props.films.map(film => (
             
             <div key={film._id} className="film">
-                <Link to={`/films/${film._id}`}>
+                <Link to={`/films/${film._id}`} style={{ textDecoration: 'none' }}>
                     <StyledMain>
                     <h1 className="add-t">{film.title}</h1>
                     </StyledMain>

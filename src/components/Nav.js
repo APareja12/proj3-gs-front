@@ -13,6 +13,9 @@ const Nav = (props) => {
             <Link to="/Add">
             <div>Add a Film</div>
             </Link>   
+            <Link to= "/Search">
+            <div>Search</div>
+            </Link> 
             <Link to="/Favorites">
             <div>Favorites</div>
             </Link>    

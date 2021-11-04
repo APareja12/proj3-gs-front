@@ -13,8 +13,9 @@ import Login from './pages/Login'
 import Casa from './pages/Casa'
 import Dashboard from './pages/Dashboard'
 import Show from './pages/Show'
-import Home from './pages/Home'
+import Search from './pages/Search'
 import Add from './pages/Add'
+import Welcome from './pages/Welcome'
 
 import { auth } from './services/firebase'
 
@@ -147,7 +148,11 @@ function App() {
       user
         ? <Switch>
             <Route exact path="/">
-                <Home user={user} films={films}/>
+                <Welcome/>
+
+            </Route>
+            <Route exact path="/Search">
+                <Search user={user} films={films}/>
             </Route>
             <Route exact path="/Casa">
                  <Casa />
@@ -180,7 +185,7 @@ function App() {
           </Switch>
           : <Switch>
         <Route exact path="/">
-          <Home user= {user}/>
+          <Welcome user= {user}/>
           </Route>
           <Route exact path="/Login">
           <Login />
