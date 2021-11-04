@@ -12,6 +12,9 @@
   font-family: 'Jacques Francois', serif;
 }
 
+#about, #search-title, #add-film {
+  text-align: center;
+}
 .nav a {
   color: white;
   text-decoration: none;
@@ -33,6 +36,7 @@ h3 {
   background-image: url('./oldframe.png');
   background-repeat: no-repeat;
   padding: 31px;
+  text-align: center;
 }
 
 li {
@@ -128,6 +132,19 @@ background-repeat: no-repeat;
   margin-top: 0px;
 }
 
+.signin-btn {
+  margin-top: 20px;
+      background: #67696c;
+      height: 52px;
+      width: 149px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 900;
+      box-shadow: 6px 7px 7px #cbced1, -1px 5px 6px white;
+      transition: 0.5s;
+      color: rgb(255 215 0 / 58%);
+      font-size: 20px;
+}
 #sun-head {
   display: flex;
   justify-content: center;
@@ -135,6 +152,10 @@ background-repeat: no-repeat;
   align-items: center;
   height: 140vh;
   font-size: 3rem;
+}
+
+.title {
+  text-shadow: 3px 3px 2px #3b3c3c;
 }
 
 .search-field {
@@ -173,6 +194,10 @@ header h1 {
   font-size: 30px;
   color: green;
   text-shadow: 3px 3px 2px rgba(117, 106, 43, 0.6);
+}
+
+.list-style li {
+  text-align: center;
 }
 
 body, #root {

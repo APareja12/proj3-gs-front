@@ -31,7 +31,7 @@ function Add(props) {
         <section>
             <Form createFilms={props.createFilms}/>
            <div>
-               <h1>Add a Silent Film! </h1>
+               <h1 id="add-film">Add a Silent Film! </h1>
            </div> 
             <div>
             { props.films ? loaded() : loading() }
