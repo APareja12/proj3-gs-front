@@ -6,7 +6,9 @@ const Welcome = (props) => {
                 <>
                 <section>
                     <div>
-                <h1>Welcome to Golden Silence</h1><br />
+                        <div id="sun-head">
+                            <h1>Welcome to Golden Silence</h1><br />
+                        </div>
                     </div>
                 </section>
                 
