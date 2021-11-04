@@ -21,7 +21,12 @@ Sign up and log in. In the home page you can search the database for silent film
 
 
 # Screenshots
-![screenshot 1](./public/assets/img/Home_Session_Screenshot.png)
+<img src='./src/assets/pic1.png'>
+<img src='./src/assets/pic2.png'>
+<img src='./src/assets/pic3.png'>
+<img src='./src/assets/pic4.png'>
+<img src='./src/assets/pic5.png'>
+
 
 
 https://golden-silence.netlify.app

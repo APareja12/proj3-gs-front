@@ -29,13 +29,15 @@ const Form = (props) => {
     }
 
     return (
-      <form className="add-form" onSubmit={handleSubmit}>
+      <form className="form-control" onSubmit={handleSubmit}>
+          <div className="inputs">
           <input value={newForm.title} onChange={handleChange} placeholder="Title" name="title"  type="text" /><br />
           <input value={newForm.year} onChange={handleChange} placeholder="Year" name="year"  type="text" /><br />
           <input value={newForm.image} onChange={handleChange} placeholder= "URL" name="image" type="url" /><br />
           <input value={newForm.director} onChange={handleChange} placeholder="Director" name="director"  type="text" /><br />
           <input value={newForm.country} onChange={handleChange} placeholder="Country" name="country"  type="text" /><br />
-          <input type="submit" />
+          <button>Submit</button>
+          </div>
       </form>
     );
   };

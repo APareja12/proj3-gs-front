@@ -35,20 +35,21 @@ const handleSearch = (event) => {
          <title>Welcome to Golden Silence 🌟 </title>
       </Helmet>
    <h1 id="search-title">Search for a Silent Film </h1>
-  
-   <input id="search-input"
-          type="text"
-          placeholder="Search films" 
-          value={search}
-          onChange={(event) => setSearch(event.target.value)}
-          />
-   <button onClick={handleSearch} id="search-btn">Search</button>
+   <div className="search-field">
+         <input id="search-input"
+               type="text"
+               placeholder="Search films" 
+               value={search}
+               onChange={(event) => setSearch(event.target.value)}
+               />
+         <button onClick={handleSearch} id="search-btn">Search</button>
+   </div>
    
    {
    filteredFilms.length && hasSearched ?
          <List films={filteredFilms}/>
       : !filteredFilms.length && hasSearched ? 
-         <h2> Film Is Not In Database</h2> 
+         <h2> Film Is Not A Silent Film</h2> 
       : null
    }
    

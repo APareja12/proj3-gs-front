@@ -43,8 +43,69 @@ li {
   margin: 0px;
 }
 
-.add-form {
-  margin-top: 10px;
+.form-control {
+  /* margin-top: 10px; */
+  margin: 15px auto;
+  position: relative;
+  width: 350px;
+  height: 500px;
+  border-radius: 20px;
+  padding: 13px;
+  box-sizing: border-box;
+  background: #3b3c3c;
+  box-shadow: 14px 9px 11px #cbced1, -2px 8px 16px white;
+}
+
+.inputs {
+  text-align: left;
+  margin-top: 30px;
+}
+
+input, button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  color: gray;
+}
+
+input {
+  background: #ecf0f3;
+  padding: 10px;
+  padding-left: 20px;
+  height: 50px;
+  font-size: 14px;
+  border-radius: 50px;
+  box-shadow: inset 6px 6px 6px #cbced1, inset -6px -6px 6px white;
+}
+
+button {
+  margin-top: 20px;
+  background: #67696c;
+  height: 47px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 900;
+  /* box-shadow: 6px 7px 7px #cbced1, -1px 5px 6px white; */
+  transition: 0.5s;
+  color: white;
+  font-size: 20px;
+}
+
+button:hover {
+  box-shadow: none;
+}
+
+#delete {
+  width: 24%;
+  width: 9%;
+  margin: 10px auto;
+  box-shadow: 6px 7px 7px #cbced1, -1px 5px 6px white;
 }
 
 #home-bg {
@@ -65,6 +126,20 @@ background-repeat: no-repeat;
 
 .welcome h1 {
   margin-top: 0px;
+}
+
+#sun-head {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 140vh;
+  font-size: 3rem;
+}
+
+.search-field {
+  width: 35%;
+  margin: auto;
 }
 
 #home-bg h1 {

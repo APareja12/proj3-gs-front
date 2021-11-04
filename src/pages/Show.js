@@ -37,8 +37,9 @@ const removeFilm = () => {
         <h4>{film?.director}</h4>
         <h4>{film?.country}</h4>
         <button id="delete" onClick={removeFilm}>DELETE</button>
-        <form onSubmit={handleSubmit}>
-                <input 
+        <form className="form-control" onSubmit={handleSubmit}>
+               <div className="inputs">
+                  <input 
                     name="title" 
                     onChange={handleChange} 
                     value={editForm.title} 
@@ -73,10 +74,9 @@ const removeFilm = () => {
                     type="url" 
                 />
                 <br />
-                <input 
-                    type="submit" 
-                    value="Edit Film"/>
+                <button>Edit Film</button>
                     <br />
+                    </div>
             </form>
       </div>
     );
