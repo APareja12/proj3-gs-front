@@ -4,7 +4,7 @@ import { signIn } from '../services/firebase';
 const Login = (props) => {
     return (
         <StyledMain>
-            <div >
+            <div id="login" >
                 <h1>Login</h1>
                 <button className="signin-btn" onClick={signIn}>Sign in with Google</button>
             </div>
