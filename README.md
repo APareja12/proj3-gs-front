@@ -18,6 +18,8 @@ Sign up and log in. In the home page you can search the database for silent film
 - Express
 - React
 - Netlify
+- Firebase
+- Google Auth
 
 
 # Screenshots
